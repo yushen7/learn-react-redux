@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { connect, ConnectedProps } from 'react-redux';
-import { toggleTodo, removeTodo } from '../actions';
+import * as React from 'react'
+import { connect, ConnectedProps } from 'react-redux'
+import { toggleTodo, removeTodo } from '../slicers'
 
 const connector = connect(null, {
   toggleTodo,
   removeTodo,
-});
+})
 interface TodoItemProps extends ConnectedProps<typeof connector> {
-  completed: boolean;
-  id: string;
-  content: string;
+  completed: boolean
+  id: string
+  content: string
 }
 const TodoItem = function TodoItem({
   toggleTodo,
@@ -31,8 +31,8 @@ const TodoItem = function TodoItem({
           <input
             checked={completed}
             type="checkbox"
-            onChange={(e) => {
-              toggleTodo(id);
+            onChange={e => {
+              toggleTodo(id)
             }}
           />
 
@@ -49,7 +49,7 @@ const TodoItem = function TodoItem({
         </button>
       </li>
     </div>
-  );
-};
+  )
+}
 
-export default connector(TodoItem);
+export default connector(TodoItem)
